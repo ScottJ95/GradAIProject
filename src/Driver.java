@@ -3,11 +3,9 @@ import java.util.Scanner;
 
 /**
  * Main Driver class.
- * Right now, only parses user input, does not work on the bot yet.
- * TODO Bug Testing & Code Reformatting
  *
  * @author Scott Jeffery
- * @version 4/6/2018
+ * @version 4/11/2018
  */
 public class Driver {
     private static Player currentPlayer;
@@ -70,6 +68,7 @@ public class Driver {
             } else {
                 System.out.println("Uh yeah that didn't work. Please try again.");
                 System.out.println("Choose a side: RED or BLACK");
+                side = sc.nextLine().trim().toUpperCase();
 
             }
         }
