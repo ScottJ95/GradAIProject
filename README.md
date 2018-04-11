@@ -8,6 +8,8 @@ The A.I. uses Alpha-Beta Pruning with Best Move First Ordering with Iterative De
 
 Just download the files and either compile/run them directly through the Driver class, or run the executable JAR on the command line.
 
+``` java -jar GradAIProject.jar ```
+
 You should be able to import the project in IntelliJ IDE as well. 
 
 If you try to just run the JAR directly it won't work since there is no graphical interface.
