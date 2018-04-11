@@ -6,7 +6,6 @@ import java.util.Random;
  * The A.I. Class represents the A.I. player
  * The A.I. Player decides on their move using minimax with alpha beta pruning.
  * The A.I. player can have multiple behaviors that decide it's difficulty.
- * TODO Cleanup Debug Lines and General Code Cleanup.
  *
  * @author Scott J
  * @version 4/6/2018
