@@ -38,11 +38,12 @@ public class AI extends Player {
             case 0:
                 break;
             //1 - 3 use Standard Alpha Beta with static depth limiting.
+            //Difficulty 1 only uses H1, Difficulty 2 uses H1+H2, 3 and 4 use all 3
             case 1:
-                this.maxDepth = 5;
+                this.maxDepth = 3;
                 break;
             case 2:
-                this.maxDepth = 7;
+                this.maxDepth = 5;
                 break;
             case 3:
                 this.maxDepth = 9;
@@ -611,6 +612,10 @@ public class AI extends Player {
      */
     private int quiesce(Board board, Player.Side side, int alpha, int beta, boolean isMax) {
 
+        //If we are on easy or normal, we will not perform a Quiescence search.
+        if(this.botDifficulty == 1 || this.botDifficulty == 2){
+            return heuristic(board,this.getSide());
+        }
         int result = heuristic(board, this.getSide());
         ArrayList<Move> moves = board.getAllPossibleJumpMoves(side);
         //No jumps, this position is quiet.
@@ -660,7 +665,18 @@ public class AI extends Player {
      * @return heuristic score of the board as an int
      */
     public int heuristic(Board board, Player.Side side) {
-        return this.heuristic3(board, side);
+        switch(botDifficulty){
+            case 1:
+                return heuristic1(board, side);
+            case 2:
+                return heuristic1(board,side) + heuristic2(board, side);
+            case 3:
+                return heuristic3(board,side);
+            case 4:
+                return heuristic3(board, side);
+            default:
+                return heuristic3(board,side);
+        }
     }
 
     /**

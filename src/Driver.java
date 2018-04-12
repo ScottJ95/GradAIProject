@@ -32,7 +32,7 @@ public class Driver {
     public static void main(String[] args) throws Exception {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to checkers!!!");
+        System.out.println("\nWelcome to checkers!!!\n");
         System.out.println("Type BOT for a bot vs bot match. Or just press enter for a player match.");
         String decision = sc.nextLine().trim().toUpperCase();
         if (decision.equals("BOT")) {
@@ -76,7 +76,7 @@ public class Driver {
         System.out.println("Choose difficulty. 0:Random. 1:Easy 2:Medium 3:Hard 4:Harder.");
         int difficulty = sc.nextInt();
         while (difficulty < 0 && difficulty > 4) {
-            System.out.println("That's not valid try again.");
+            System.out.println("That's not valid try again.\n");
             System.out.println("Choose difficulty. 0: Random. 1: Easy 2: Medium 3: Hard 4: Harder.");
             difficulty = sc.nextInt();
         }
@@ -91,7 +91,7 @@ public class Driver {
         sc.nextLine();
         Thread.sleep(1000);
         System.out.println("Black always moves first. After that, players take turns.");
-        System.out.println("If 30 moves are made with no captures, the Bot will offer to end the game.");
+        System.out.println("If 30 moves are made with no captures, the Bot will offer to end the game.\n");
         mainBoard = new Board();
         moveHistory = new ArrayList<Move>();
         int movesMade = 0;
@@ -102,7 +102,7 @@ public class Driver {
             int numBlack = mainBoard.getTotalBlack();
             System.out.println(mainBoard.toString());
             printMoveHistory();
-            System.out.println("Heuristic: " + bot.heuristic(mainBoard, bot.getSide()));
+            //System.out.println("Heuristic: " + bot.heuristic(mainBoard, bot.getSide()));
             System.out.println("Black Pieces left: " + mainBoard.getTotalBlack());
             System.out.println("Red Pieces left: " + mainBoard.getTotalRed());
             Thread.sleep(1500);
@@ -127,8 +127,8 @@ public class Driver {
                     }
                 }
             }
-            System.out.println("It's " + currentPlayer.getSide() + "'s turn");
-            System.out.println("Moves Made Since Last Capture: " + movesMade);
+            System.out.println("It's " + currentPlayer.getSide() + "'s turn\n");
+            //System.out.println("Moves Made Since Last Capture: " + movesMade + "\n");
             MoveResult result = null;
             Move lastMove = null;
 
@@ -210,7 +210,7 @@ public class Driver {
             int numBlack = mainBoard.getTotalBlack();
             System.out.println(mainBoard.toString());
             printMoveHistory();
-            System.out.println("Heuristic: " + bot.heuristic(mainBoard, bot.getSide()));
+            //System.out.println("Heuristic: " + bot.heuristic(mainBoard, bot.getSide()));
             System.out.println("Black Pieces left: " + mainBoard.getTotalBlack());
             System.out.println("Red Pieces left: " + mainBoard.getTotalRed());
             Thread.sleep(200);
@@ -234,7 +234,7 @@ public class Driver {
                 finished = true;
                 break;
             }
-            System.out.println("It's " + currentPlayer.getSide() + "'s turn");
+            System.out.println("It's " + currentPlayer.getSide() + "'s turn\n");
 
             MoveResult result = null;
             Move lastMove = null;
