@@ -5,7 +5,7 @@ import java.util.Scanner;
  * Main Driver class.
  *
  * @author Scott Jeffery
- * @version 4/11/2018
+ * @version 4/13/2018
  */
 public class Driver {
     private static Player currentPlayer;

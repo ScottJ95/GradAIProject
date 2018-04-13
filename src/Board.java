@@ -9,7 +9,7 @@ import java.util.Random;
  * The checkers board is straight checkers, which is an 8x8 board.
  *
  * @author Scott Jeffery
- * @version 4/8/2018
+ * @version 4/13/2018
  */
 public class Board {
 

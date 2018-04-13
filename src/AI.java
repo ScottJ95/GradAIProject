@@ -8,7 +8,7 @@ import java.util.Random;
  * The A.I. player can have multiple behaviors that decide it's difficulty.
  *
  * @author Scott J
- * @version 4/6/2018
+ * @version 4/13/2018
  */
 public class AI extends Player {
     private int maxDepth;
@@ -691,16 +691,32 @@ public class AI extends Player {
         int score = 0;
         int timesRed = 1;
         int timesBlack = -1;
+        //Score for hard and harder.
+        int pawnAmount = 5;
+        int kingAmount = 15;
+
+        //If we are on easy, let's lower the score ratio to make it a bit easier.
+        //I found overall that this ratio proved to be much less successful.
+        if(this.botDifficulty == 1){
+            pawnAmount = 1;
+            kingAmount = 2;
+        }
+
+        //Medium score 2 and 6
+        if(this.botDifficulty == 2){
+            pawnAmount = 2;
+            kingAmount = 6;
+        }
 
         if (side == Player.Side.BLACK) {
             timesRed = -1;
             timesBlack = 1;
         }
         //+1 if RED, -1 if black
-        score = score + (timesRed * board.getNumRed() * 5);
-        score = score + (timesRed * board.getNumRedKing() * 15);
-        score = score + (timesBlack * board.getNumBlack() * 5);
-        score = score + (timesBlack * board.getNumBlackKing() * 15);
+        score = score + (timesRed * board.getNumRed() * pawnAmount);
+        score = score + (timesRed * board.getNumRedKing() * kingAmount);
+        score = score + (timesBlack * board.getNumBlack() * pawnAmount);
+        score = score + (timesBlack * board.getNumBlackKing() * kingAmount);
 
         return score;
     }
