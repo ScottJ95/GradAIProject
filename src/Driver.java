@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Main Driver class.
+ * Main Driver class. Handles user input and the overall game flow.
  *
  * @author Scott Jeffery
- * @version 4/13/2018
+ * @version 4/17/2018
  */
 public class Driver {
     private static Player currentPlayer;
@@ -56,7 +56,7 @@ public class Driver {
         System.out.println("Choose a side: RED or BLACK");
         String side = sc.nextLine().trim().toUpperCase();
         boolean firstValid = false;
-        while(!firstValid) {
+        while (!firstValid) {
             if (side.equals("RED")) {
                 player = new Player(Player.Side.RED);
                 currentPlayer = null;
@@ -328,7 +328,6 @@ public class Driver {
             valid = true;
             result.printResult();
 
-
             if (currentPlayer == player) {
                 currentPlayer = bot;
             } else {
@@ -415,5 +414,4 @@ public class Driver {
             return Player.Side.BLACK;
         }
     }
-
 }

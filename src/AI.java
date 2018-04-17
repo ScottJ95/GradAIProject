@@ -8,7 +8,7 @@ import java.util.Random;
  * The A.I. player can have multiple behaviors that decide it's difficulty.
  *
  * @author Scott J
- * @version 4/13/2018
+ * @version 4/17/2018
  */
 public class AI extends Player {
     private int maxDepth;
@@ -22,7 +22,6 @@ public class AI extends Player {
     //NOTE: THE TIME LIMIT IS HIGHLY VARIABLE BECAUSE OF DIFFERENT STUFF.
     private long timeLimit = 5000; //milliseconds
     private HashMap<Board, ITState> transTable;
-
 
     /**
      * Constructor for the AI
@@ -616,6 +615,7 @@ public class AI extends Player {
         if(this.botDifficulty == 1 || this.botDifficulty == 2){
             return heuristic(board,this.getSide());
         }
+
         int result = heuristic(board, this.getSide());
         ArrayList<Move> moves = board.getAllPossibleJumpMoves(side);
         //No jumps, this position is quiet.
@@ -748,8 +748,8 @@ public class AI extends Player {
                 score = score + 2;
             }
         }
-        Player.Side opponent;
 
+        Player.Side opponent;
         if (side == Player.Side.BLACK) {
             opponent = Player.Side.RED;
         } else {
@@ -801,6 +801,7 @@ public class AI extends Player {
         //First, check the Red End Row.
         int row = 0;
         result = result + checkEndRow(row, board, playerSide);
+
         //Black End Row
         row = 7;
         result = result + checkEndRow(row, board, playerSide);
@@ -810,6 +811,7 @@ public class AI extends Player {
         //Column 0.
         int col = 0;
         result = result + checkEdges(col, board, playerSide);
+
         //Column 7.
         col = 7;
         result = result + checkEdges(col, board, playerSide);
@@ -819,6 +821,7 @@ public class AI extends Player {
         //Red side = [0, 1-7= -> [3, 1-7]
         //Check black side
         result = result + checkTerritory(board, playerSide, true);
+
         //Check red side
         result = result + checkTerritory(board, playerSide, false);
         return result;

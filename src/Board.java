@@ -9,7 +9,7 @@ import java.util.Random;
  * The checkers board is straight checkers, which is an 8x8 board.
  *
  * @author Scott Jeffery
- * @version 4/13/2018
+ * @version 4/17/2018
  */
 public class Board {
 
@@ -81,59 +81,6 @@ public class Board {
     public Board(boolean test) {
         this.board = new Piece[8][8];
 
-        /*for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (i == 4 && j == 4) {
-                    board[i][j] = Piece.BLACK;
-                } else if (i == 3 && j == 3) {
-                    board[i][j] = Piece.RED;
-                } else if (i == 1 && j == 1) {
-                    board[i][j] = Piece.RED;
-                } else {
-                    board[i][j] = Piece.EMPTY;
-                }
-            }
-        }*/
-
-        /*for(int i = 0;  i <8; i++){
-            for(int j = 0; j < 8; j++){
-                if(i== 7 && j == 5){
-                    board[i][j] = Piece.RED_KING;
-                }
-                else if(i==6 && j == 2){
-                    board[i][j] = Piece.RED;
-                }
-                else if(i==6 && j == 4){
-                    board[i][j] = Piece.RED;
-                }
-                else if(i==6 && j == 6){
-                    board[i][j] = Piece.BLACK;
-                }
-                else if(i==5 && j == 7){
-                    board[i][j] = Piece.BLACK;
-                }
-                else if(i==1 && j == 3){
-                    board[i][j] = Piece.BLACK_KING;
-                }
-                else if(i==1 && j == 7){
-                    board[i][j] = Piece.RED;
-                }
-                else if(i==0 && j == 0){
-                    board[i][j] = Piece.BLACK_KING;
-                }
-                else if(i==0 && j == 6){
-                    board[i][j] = Piece.RED;
-                }
-                else{
-                    board[i][j] = Piece.EMPTY;
-                }
-            }
-        }
-
-        this.numRedKing = 1;
-        this.numBlackKing = 2;
-        this.numBlack = 2;
-        this.numRed = 4;*/
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -438,7 +385,6 @@ public class Board {
         } else {
             return false;
         }
-
     }
 
     /**
