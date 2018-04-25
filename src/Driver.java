@@ -87,12 +87,26 @@ public class Driver {
             currentPlayer = bot;
         }
 
+
+        System.out.println("Choose Print Style: 1: X's and O's.  2: B's and R's.");
+        int style = sc.nextInt();
+        while(style < 1 && style > 2){
+            System.out.println("That's not valid try again.\n");
+            System.out.println("Choose Print Style: 1: X's and O's 2: B's and R's.");
+            style = sc.nextInt();
+        }
+        //Value to use X's and O's instead of R and B.
+        boolean useX = false;
+        if(style == 1) {
+            useX = true;
+        }
+
         //Fixes scanner
         sc.nextLine();
         Thread.sleep(1000);
         System.out.println("Black always moves first. After that, players take turns.");
         System.out.println("If 30 moves are made with no captures, the Bot will offer to end the game.\n");
-        mainBoard = new Board();
+        mainBoard = new Board(useX);
         moveHistory = new ArrayList<Move>();
         int movesMade = 0;
 
@@ -127,7 +141,18 @@ public class Driver {
                     }
                 }
             }
-            System.out.println("It's " + currentPlayer.getSide() + "'s turn\n");
+            if(useX){
+                if(currentPlayer.getSide().equals("RED")){
+                    System.out.println("It's " + currentPlayer.getSide() + "'s (X's) turn\n");
+                }
+                else{
+                    System.out.println("It's " + currentPlayer.getSide() + "'s (O's) turn\n");
+                }
+
+            }
+            else{
+                System.out.println("It's " + currentPlayer.getSide() + "'s turn\n");
+            }
             //System.out.println("Moves Made Since Last Capture: " + movesMade + "\n");
             MoveResult result = null;
             Move lastMove = null;

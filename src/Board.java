@@ -26,6 +26,7 @@ public class Board {
     private int numRedKing;
     private int numBlackKing;
     private int score;
+    private boolean useX;
     //Static Zobrist table usd for hashing. All board use this same table.
     static private int[][][] zobristTable = init_zobrist();
 
@@ -58,6 +59,7 @@ public class Board {
         numRedKing = 0;
         numBlack = 12;
         numBlackKing = 0;
+        useX = false;
     }
 
     /**
@@ -73,34 +75,18 @@ public class Board {
 
 
     /**
-     * Test constructor
-     * Pass it any boolean paramaeter to construct a test board
+     * Constructor to use X's and O's instead of R and B.
      *
-     * @param test test value
+     *
+     * @param useX true to use X's and O's
      */
-    public Board(boolean test) {
-        this.board = new Piece[8][8];
-
-
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (i == 4 && j == 0) {
-                    board[i][j] = Piece.BLACK;
-                } else if (i == 3 && j == 1) {
-                    board[i][j] = Piece.RED;
-                } else if (i == 0 && j == 6) {
-                    board[i][j] = Piece.RED;
-                } else {
-                    board[i][j] = Piece.EMPTY;
-                }
-            }
-        }
-
-        this.numRedKing = 1;
-        this.numBlackKing = 2;
-        this.numBlack = 1;
-        this.numRed = 2;
-
+    public Board(boolean useX) {
+        createDefaultBoard();
+        numRed = 12;
+        numRedKing = 0;
+        numBlack = 12;
+        numBlackKing = 0;
+        this.useX = useX;
     }
 
     /**
@@ -784,33 +770,62 @@ public class Board {
     public String toString() {
         String result = "";
 
-        for (int i = 7; i >= 0; i--) {
-            result += (i) + " ";
-            for (int j = 0; j < board.length; j++) {
-                result = result + "[";
-                Piece piece = getPiece(i, j);
-                switch (piece) {
-                    case BLACK:
-                        result += "b]";
-                        break;
-                    case BLACK_KING:
-                        result += "B]";
-                        break;
-                    case RED:
-                        result += "r]";
-                        break;
-                    case RED_KING:
-                        result += "R]";
-                        break;
-                    case EMPTY:
-                        result += " ]";
-                        break;
+        if(useX){
+            for (int i = 7; i >= 0; i--) {
+                result += (i) + " ";
+                for (int j = 0; j < board.length; j++) {
+                    result = result + "[";
+                    Piece piece = getPiece(i, j);
+                    switch (piece) {
+                        case BLACK:
+                            result += "o]";
+                            break;
+                        case BLACK_KING:
+                            result += "O]";
+                            break;
+                        case RED:
+                            result += "x]";
+                            break;
+                        case RED_KING:
+                            result += "X]";
+                            break;
+                        case EMPTY:
+                            result += " ]";
+                            break;
+                    }
                 }
+                result += "\n";
             }
-            result += "\n";
         }
-
+        else {
+            for (int i = 7; i >= 0; i--) {
+                result += (i) + " ";
+                for (int j = 0; j < board.length; j++) {
+                    result = result + "[";
+                    Piece piece = getPiece(i, j);
+                    switch (piece) {
+                        case BLACK:
+                            result += "b]";
+                            break;
+                        case BLACK_KING:
+                            result += "B]";
+                            break;
+                        case RED:
+                            result += "r]";
+                            break;
+                        case RED_KING:
+                            result += "R]";
+                            break;
+                        case EMPTY:
+                            result += " ]";
+                            break;
+                    }
+                }
+                result += "\n";
+            }
+        }
         result += "   A  B  C  D  E  F  G  H\n";
         return result;
+
     }
 }
