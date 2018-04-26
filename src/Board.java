@@ -423,7 +423,7 @@ public class Board {
      * @param side side to use
      * @return ArrayList of all possible moves
      */
-    private ArrayList<Move> getPossiblePieceMoves(int row, int col, Player.Side side) {
+    public ArrayList<Move> getPossiblePieceMoves(int row, int col, Player.Side side) {
         //If a piece is normal, it has 2 possible moves maximum. If it's a king piece, it has 4 moves maximum.
         Piece currPiece = getPiece(row, col);
 

@@ -142,7 +142,7 @@ public class Driver {
                 }
             }
             if(useX){
-                if(currentPlayer.getSide().equals("RED")){
+                if(currentPlayer.getSide().equals(Player.Side.RED)){
                     System.out.println("It's " + currentPlayer.getSide() + "'s (X's) turn\n");
                 }
                 else{

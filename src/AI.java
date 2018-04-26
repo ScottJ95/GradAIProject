@@ -117,7 +117,7 @@ public class AI extends Player {
 
         //We are in an additional move. Reset skip position.
         else {
-            moves = board.getAllPossibleMoves(this.getSide());
+            moves = board.getPossiblePieceMoves(this.jumpRow, this.jumpCol, this.getSide());
             this.jumpCol = -1;
             this.jumpRow = -1;
         }
@@ -162,7 +162,7 @@ public class AI extends Player {
 
         //We are in an additional move. Reset skip position.
         else {
-            moves = board.getAllPossibleMoves(this.getSide());
+            moves = board.getPossiblePieceMoves(this.jumpRow, this.jumpCol, this.getSide());
             this.jumpCol = -1;
             this.jumpRow = -1;
         }
@@ -233,7 +233,7 @@ public class AI extends Player {
 
         //We are in an additional move. Reset jump position.
         else {
-            moves = board.getAllPossibleMoves(this.getSide());
+            moves = board.getPossiblePieceMoves(this.jumpRow, this.jumpCol, this.getSide());
             this.jumpCol = -1;
             this.jumpRow = -1;
         }
