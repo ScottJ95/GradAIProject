@@ -75,7 +75,7 @@ public class Driver {
 
         System.out.println("Choose difficulty. 0:Random. 1:Easy 2:Medium 3:Hard 4:Harder.");
         int difficulty = sc.nextInt();
-        while (difficulty < 0 && difficulty > 4) {
+        while (difficulty < 0 || difficulty > 4) {
             System.out.println("That's not valid try again.\n");
             System.out.println("Choose difficulty. 0: Random. 1: Easy 2: Medium 3: Hard 4: Harder.");
             difficulty = sc.nextInt();
@@ -90,7 +90,7 @@ public class Driver {
 
         System.out.println("Choose Print Style: 1: X's and O's.  2: B's and R's.");
         int style = sc.nextInt();
-        while(style < 1 && style > 2){
+        while(style < 1 || style > 2){
             System.out.println("That's not valid try again.\n");
             System.out.println("Choose Print Style: 1: X's and O's 2: B's and R's.");
             style = sc.nextInt();
